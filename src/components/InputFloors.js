@@ -15,19 +15,17 @@ export default function InputFloors(props) {
 
   return (
     <div>
-      <label>
-        Pisos:
-        <input
-          type="number"
-          placeholder="1"
-          required
-          name="floors"
-          min="1"
-          step="1"
-          value={floors}
-          onChange={handleChange}
-        />
-      </label>
+      <h5>Pisos:</h5>
+      <input
+        type="number"
+        placeholder="1"
+        required
+        name="floors"
+        min="1"
+        step="1"
+        value={floors}
+        onChange={handleChange}
+      />
     </div>
   );
 }

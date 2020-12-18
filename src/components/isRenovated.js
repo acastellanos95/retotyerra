@@ -21,16 +21,14 @@ export default function IsRenovated(props) {
   }
   return (
     <div>
-      <label>
-        ¿Está renovado?
-        <input
-          type="checkbox"
-          required
-          name="isRenovated"
-          checked={isRenovated}
-          onChange={handleChange}
-        />
-      </label>
+      <input
+        type="checkbox"
+        required
+        name="isRenovated"
+        checked={isRenovated}
+        onChange={handleChange}
+      />
+      <label>¿Está renovado?</label>
     </div>
   );
 }

@@ -15,20 +15,18 @@ export default function InputYearBuilt(props) {
 
   return (
     <div>
-      <label>
-        Año de construcción:
-        <input
-          type="number"
-          placeholder="1"
-          required
-          name="yr_built"
-          min="1900"
-          max="2015"
-          step="1"
-          value={yr_built}
-          onChange={handleChange}
-        />
-      </label>
+      <h5>Año de construcción:</h5>
+      <input
+        type="number"
+        placeholder="1"
+        required
+        name="yr_built"
+        min="1900"
+        max="2015"
+        step="1"
+        value={yr_built}
+        onChange={handleChange}
+      />
     </div>
   );
 }

@@ -10,20 +10,18 @@ export default function InputPrice(props) {
 
   return (
     <div>
-      <label>
-        Precio en USD:
-        <input
-          type="number"
-          placeholder="0.00"
-          required
-          name="price"
-          min="1"
-          step="0.01"
-          title="Currency"
-          value={price}
-          onChange={handleChange}
-        />
-      </label>
+      <h5>Precio en USD:</h5>
+      <input
+        type="number"
+        placeholder="0.00"
+        required
+        name="price"
+        min="1"
+        step="0.01"
+        title="Currency"
+        value={price}
+        onChange={handleChange}
+      />
     </div>
   );
 }

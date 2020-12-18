@@ -26,16 +26,14 @@ export default function HasWaterfront(props) {
   }
   return (
     <div>
-      <label>
-        ¿Tiene vista al mar?
-        <input
-          type="checkbox"
-          required
-          name="hasWaterfront"
-          checked={hasWaterfront}
-          onChange={handleChange}
-        />
-      </label>
+      <input
+        type="checkbox"
+        required
+        name="hasWaterfront"
+        checked={hasWaterfront}
+        onChange={handleChange}
+      />
+      <label>¿Tiene vista al mar?</label>
     </div>
   );
 }

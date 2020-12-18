@@ -15,19 +15,17 @@ export default function InputBedrooms(props) {
 
   return (
     <div>
-      <label>
-        Recamaras:
-        <input
-          type="number"
-          placeholder="1"
-          required
-          name="bedrooms"
-          min="1"
-          step="1"
-          value={bedrooms}
-          onChange={handleChange}
-        />
-      </label>
+      <h5>Recamaras:</h5>
+      <input
+        type="number"
+        placeholder="1"
+        required
+        name="bedrooms"
+        min="1"
+        step="1"
+        value={bedrooms}
+        onChange={handleChange}
+      />
     </div>
   );
 }

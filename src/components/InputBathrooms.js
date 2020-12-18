@@ -14,19 +14,17 @@ export default function InputBathrooms(props) {
   }
   return (
     <div>
-      <label>
-        Baños:
-        <input
-          type="number"
-          placeholder="1"
-          required
-          name="bathrooms"
-          min="1"
-          step="0.5"
-          value={bathrooms}
-          onChange={handleChange}
-        />
-      </label>
+      <h5>Baños:</h5>
+      <input
+        type="number"
+        placeholder="1"
+        required
+        name="bathrooms"
+        min="1"
+        step="0.5"
+        value={bathrooms}
+        onChange={handleChange}
+      />
     </div>
   );
 }

@@ -15,19 +15,17 @@ export default function InputMeterSquared(props) {
 
   return (
     <div>
-      <label>
-        {label}
-        <input
-          type="number"
-          placeholder="1"
-          required
-          name={name}
-          min="1"
-          step="1"
-          value={properties[name]}
-          onChange={handleChange}
-        />
-      </label>
+      <h5>{label}</h5>
+      <input
+        type="number"
+        placeholder="1"
+        required
+        name={name}
+        min="1"
+        step="1"
+        value={properties[name]}
+        onChange={handleChange}
+      />
     </div>
   );
 }

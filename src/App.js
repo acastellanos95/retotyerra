@@ -2,7 +2,7 @@
 import { useEffect, useState } from "react";
 import ImportImagesInput from "./components/Images";
 import "./App.css";
-import { Button } from "reactstrap";
+import { Button, Col, Container, Row } from "reactstrap";
 import InputBedrooms from "./components/InputBedrooms";
 import InputPrice from "./components/InputPrice";
 import InputBathrooms from "./components/InputBathrooms";
@@ -116,6 +116,8 @@ function App() {
 
     const tensor_input = normalize(tf.tensor2d(arr_price_predict, [1, 19]));
 
+    console.log(tensor_input.toString());
+
     let debug_price = setPredictedPrice(model.predict(tensor_input).dataSync());
     console.log(debug_price);
     console.log(arr_price_predict);
@@ -124,124 +126,143 @@ function App() {
   useEffect(() => {
     tf.ready().then(() => {
       // console.log("TF ready");
-      loadModel("http://localhost:3000/modeltfjs/model.json");
+      loadModel(
+        "https://aqueous-peak-24226.herokuapp.com/modeltfjs/model.json"
+      );
     });
   });
 
   return (
     <div>
-      <div>
+      <div className="title">
         <h1>
           Formulario en React con analíticas de un modelo deep learning v 0.0.1
           alpha
         </h1>
       </div>
-      <div>
+      <hr />
+      <div className="subtitle">
         <h3>Sube las características de tu inmueble</h3>
       </div>
       <form onSubmit={handleSubmit} onChange={handleChangeForm}>
-        <ImportImagesInput />
-        <InputPrice price={price} setPrice={setPrice} />
-        <InputBedrooms
-          properties={arrayPredictProperties}
-          setProperties={setArrayPredictProperties}
-        />
-        <InputBathrooms
-          properties={arrayPredictProperties}
-          setProperties={setArrayPredictProperties}
-        />
-        <InputFloors
-          properties={arrayPredictProperties}
-          setProperties={setArrayPredictProperties}
-        />
-        <InputYearBuilt
-          properties={arrayPredictProperties}
-          setProperties={setArrayPredictProperties}
-        />
-        <RangeViews
-          properties={arrayPredictProperties}
-          setProperties={setArrayPredictProperties}
-        />
-        <RangeCondition
-          properties={arrayPredictProperties}
-          setProperties={setArrayPredictProperties}
-        />
-        <RangeGrade
-          properties={arrayPredictProperties}
-          setProperties={setArrayPredictProperties}
-        />
-        <HasBasement
-          setProperties={setArrayPredictProperties}
-          hasBasement={hasBasement}
-          setHasBasement={setHasBasement}
-        />
-        <IsRenovated
-          setProperties={setArrayPredictProperties}
-          isRenovated={isRenovated}
-          setIsRenovated={setIsRenovated}
-        />
-        <HasWaterfront
-          setProperties={setArrayPredictProperties}
-          hasWaterfront={hasWaterfront}
-          setHasWaterfront={setHasWaterfront}
-        />
-        <InputMeterSquared
-          label="Pies cuadrados de construcción(antes de la renovación)"
-          name="sqft_living"
-          properties={arrayPredictProperties}
-          setProperties={setArrayPredictProperties}
-        />
-        <InputMeterSquared
-          label="Pies cuadrados de terreno"
-          name="sqft_lot"
-          properties={arrayPredictProperties}
-          setProperties={setArrayPredictProperties}
-        />
-        {hasBasement && (
-          <InputMeterSquared
-            label="Pies cuadrados del sótano"
-            name="sqft_basement"
-            properties={arrayPredictProperties}
-            setProperties={setArrayPredictProperties}
-          />
-        )}
-        {hasBasement && (
-          <InputMeterSquared
-            label="Pies cuadrados de los niveles superiores al piso"
-            name="sqft_above"
-            properties={arrayPredictProperties}
-            setProperties={setArrayPredictProperties}
-          />
-        )}
-        {isRenovated && (
-          <InputYearRenovated
-            properties={arrayPredictProperties}
-            setProperties={setArrayPredictProperties}
-          />
-        )}
-        {isRenovated && (
-          <InputMeterSquared
-            label="Pies cuadrados de la construcción después de la renovación"
-            name="sqft_living15"
-            properties={arrayPredictProperties}
-            setProperties={setArrayPredictProperties}
-          />
-        )}
-        {isRenovated && (
-          <InputMeterSquared
-            label="Pies cuadrados del lote despues de la renovación(si hubo)"
-            name="sqft_lot15"
-            properties={arrayPredictProperties}
-            setProperties={setArrayPredictProperties}
-          />
-        )}
-        <InputLocation
-          properties={arrayPredictProperties}
-          setProperties={setArrayPredictProperties}
-        />
-        <Button>Submit</Button>
+        <Container fluid={false}>
+          <Row>
+            <Col md="2" className="checkboxes">
+              <HasBasement
+                setProperties={setArrayPredictProperties}
+                hasBasement={hasBasement}
+                setHasBasement={setHasBasement}
+              />
+              <IsRenovated
+                setProperties={setArrayPredictProperties}
+                isRenovated={isRenovated}
+                setIsRenovated={setIsRenovated}
+              />
+              <HasWaterfront
+                setProperties={setArrayPredictProperties}
+                hasWaterfront={hasWaterfront}
+                setHasWaterfront={setHasWaterfront}
+              />
+            </Col>
+            <Col md="6" className="inputs">
+              <ImportImagesInput />
+              <InputPrice price={price} setPrice={setPrice} />
+              <InputBedrooms
+                properties={arrayPredictProperties}
+                setProperties={setArrayPredictProperties}
+              />
+              <InputBathrooms
+                properties={arrayPredictProperties}
+                setProperties={setArrayPredictProperties}
+              />
+              <InputFloors
+                properties={arrayPredictProperties}
+                setProperties={setArrayPredictProperties}
+              />
+              <InputYearBuilt
+                properties={arrayPredictProperties}
+                setProperties={setArrayPredictProperties}
+              />
+              <RangeViews
+                properties={arrayPredictProperties}
+                setProperties={setArrayPredictProperties}
+              />
+              <RangeCondition
+                properties={arrayPredictProperties}
+                setProperties={setArrayPredictProperties}
+              />
+              <RangeGrade
+                properties={arrayPredictProperties}
+                setProperties={setArrayPredictProperties}
+              />
+              <InputMeterSquared
+                label="Pies cuadrados de construcción(antes de la renovación)"
+                name="sqft_living"
+                properties={arrayPredictProperties}
+                setProperties={setArrayPredictProperties}
+              />
+              <InputMeterSquared
+                label="Pies cuadrados de terreno"
+                name="sqft_lot"
+                properties={arrayPredictProperties}
+                setProperties={setArrayPredictProperties}
+              />
+              {hasBasement && (
+                <InputMeterSquared
+                  label="Pies cuadrados del sótano"
+                  name="sqft_basement"
+                  properties={arrayPredictProperties}
+                  setProperties={setArrayPredictProperties}
+                />
+              )}
+              {hasBasement && (
+                <InputMeterSquared
+                  label="Pies cuadrados de los niveles superiores al piso"
+                  name="sqft_above"
+                  properties={arrayPredictProperties}
+                  setProperties={setArrayPredictProperties}
+                />
+              )}
+              {isRenovated && (
+                <InputYearRenovated
+                  properties={arrayPredictProperties}
+                  setProperties={setArrayPredictProperties}
+                />
+              )}
+              {isRenovated && (
+                <InputMeterSquared
+                  label="Pies cuadrados de la construcción después de la renovación"
+                  name="sqft_living15"
+                  properties={arrayPredictProperties}
+                  setProperties={setArrayPredictProperties}
+                />
+              )}
+              {isRenovated && (
+                <InputMeterSquared
+                  label="Pies cuadrados del lote despues de la renovación(si hubo)"
+                  name="sqft_lot15"
+                  properties={arrayPredictProperties}
+                  setProperties={setArrayPredictProperties}
+                />
+              )}
+              <InputLocation
+                properties={arrayPredictProperties}
+                setProperties={setArrayPredictProperties}
+              />
+            </Col>
+            <Col md="4" className="analytics">
+              <h2>Precio:</h2>
+              <h3>{price}</h3>
+              <h2>Precio estimado:</h2>
+              <h3>
+                {isNaN(predictedPrice)
+                  ? "Modelo no tiene respuesta"
+                  : predictedPrice}
+              </h3>
+            </Col>
+          </Row>
+        </Container>
       </form>
-      <h3>{predictedPrice}</h3>
     </div>
   );
 }

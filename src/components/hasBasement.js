@@ -19,16 +19,14 @@ export default function HasBasement(props) {
   }
   return (
     <div>
-      <label>
-        ¿Tiene sótano?
-        <input
-          type="checkbox"
-          required
-          name="hasBasement"
-          checked={hasBasement}
-          onChange={handleChange}
-        />
-      </label>
+      <input
+        type="checkbox"
+        required
+        name="hasBasement"
+        checked={hasBasement}
+        onChange={handleChange}
+      />
+      <label>¿Tiene sótano?</label>
     </div>
   );
 }

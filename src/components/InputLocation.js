@@ -15,7 +15,7 @@ export default function InputLocation(props) {
 
   return (
     <div>
-      <label>
+      <h5>
         Latitud:
         <input
           type="number"
@@ -26,8 +26,8 @@ export default function InputLocation(props) {
           value={lat}
           onChange={handleChange}
         />
-      </label>
-      <label>
+      </h5>
+      <h5>
         Longitud:
         <input
           type="number"
@@ -38,7 +38,7 @@ export default function InputLocation(props) {
           value={long}
           onChange={handleChange}
         />
-      </label>
+      </h5>
     </div>
   );
 }
